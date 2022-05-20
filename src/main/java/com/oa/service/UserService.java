@@ -4,7 +4,10 @@ import com.oa.dao.UserDao;
 import com.oa.entity.User;
 import com.oa.service.exception.BussinessException;
 
-public class UserService {
+import javax.servlet.Servlet;
+import javax.servlet.http.HttpServlet;
+
+public class UserService extends HttpServlet {
     private UserDao userDao;
     public User checkLogin(String username, String password){
         User user=userDao.selectByUsername(username);
@@ -13,4 +16,5 @@ public class UserService {
         }
         return user;
     }
+
 }
