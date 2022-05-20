@@ -4,16 +4,16 @@ import com.oa.dao.UserDao;
 import com.oa.entity.User;
 import com.oa.service.exception.BussinessException;
 
-import javax.servlet.Servlet;
-import javax.servlet.http.HttpServlet;
 
-public class UserService extends HttpServlet {
-    private UserDao userDao;
+public class UserService {
+    private UserDao userDao=new UserDao();
     public User checkLogin(String username, String password){
         User user=userDao.selectByUsername(username);
         if(user==null){
             throw new BussinessException("L001","Username dont exist");
         }
+        if(!user.getPassword().equals(password))
+            throw new BussinessException("L001","Password fail");
         return user;
     }
 

@@ -23,7 +23,7 @@
 </head>
 <body>
 <div class="oa-container">
-    <h1 style="text-align: center;margin-bottom: 20px">慕课网办公OA系统</h1>
+    <h1 style="text-align: center;margin-bottom: 20px">办公OA系统</h1>
     <form class="layui-form">
         <div class="layui-form-item">
             <input type="text" id="username" lay-verify="required" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input" >
@@ -37,5 +37,25 @@
         </div>
     </form>
 </div>
+<script src="../resources/layui/layui.js"></script>
+<script>
+    layui.form.on("submit(login)",function (formdata){
+        console.log(formdata);
+        layui.$ajax({
+            url:"/check_login",
+            data:formdata.field,
+            type:"post",
+            dataType:"json",
+            success:function (json){
+                if(json.code==="0"){
+                    layui.layer.msg("登录成功");
+                }else{
+                    layui.layer.msg(json.message);
+                }
+            }
+        })
+        return false;
+    })
+</script>
 </body>
 </html>
