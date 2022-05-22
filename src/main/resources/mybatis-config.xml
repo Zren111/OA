@@ -12,7 +12,7 @@
                 <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/oa?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>
                 <property name="username" value="root"/>
-                <property name="password" value="zren3340541"/>
+                <property name="password" value="pser3340541"/>
                 <property name="initialSize" value="10"/>
                 <property name="maxActive" value="20"/>
             </dataSource>
@@ -21,5 +21,11 @@
     <mappers>
         <mapper resource="mappers/test.xml"/>
         <mapper resource="mappers/user.xml"/>
+        <mapper resource="mappers/rbac.xml"/>
+        <mapper resource="mappers/employee.xml"/>
+        <mapper resource="mappers/department.xml"/>
+        <mapper resource="mappers/leave_form.xml"/>
+        <mapper resource="mappers/process_flow.xml"/>
+        <mapper resource="mappers/notice.xml"/>
     </mappers>
 </configuration>
